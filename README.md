@@ -5,7 +5,7 @@ Statische, mobile-first Microsite mit zwei getrennten Gutschein-Versionen:
 - Teaser für Axel: `/v/c7n2f9m4e8q1/`
 - Vollversion für Sabine: `/v/j8r5k1t9w2p6/`
 
-Version: `1.1.0`
+Version: `1.1.1`
 
 ## Vorschau lokal
 
