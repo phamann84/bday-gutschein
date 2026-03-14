@@ -5,7 +5,7 @@ Statische, mobile-first Microsite mit zwei getrennten Gutschein-Versionen:
 - Teaser für Axel: `/v/c7n2f9m4e8q1/`
 - Vollversion für Sabine: `/v/j8r5k1t9w2p6/`
 
-Version: `1.0.2`
+Version: `1.0.3`
 
 ## Vorschau lokal
 
@@ -18,23 +18,17 @@ Danach im Browser öffnen:
 - `http://localhost:4173/v/c7n2f9m4e8q1/`
 - `http://localhost:4173/v/j8r5k1t9w2p6/`
 
-## GitHub Pages
-
-Das Projekt ist für Deployment über GitHub Pages per GitHub Actions vorbereitet.
-
 ## Struktur
 
 ```text
 .
+├── .gitignore
 ├── README.md
 ├── assets
 │   ├── scripts
 │   │   └── bagpipe-audio.js
 │   └── styles
 │       └── main.css
-├── .github
-│   └── workflows
-│       └── deploy-pages.yml
 ├── index.html
 ├── package.json
 └── v
