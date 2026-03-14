@@ -25,6 +25,7 @@
       <section class="hero reveal">
         <div class="hero__stage">
           <div class="hero__copy">
+            <div class="hero__backdrop-word hero__backdrop-word--warm" aria-hidden="true">GESCHENK</div>
             <p class="eyebrow">31.03.2026 · Erster Teil des gemeinsamen Reisegeschenks</p>
             <h1>Lieber Axel, zu deinem 70. Geburtstag</h1>
             <p class="lead">Ein gemeinsames Geschenk für dich und Sabine wartet auf euch.</p>
@@ -34,19 +35,24 @@
             </div>
           </div>
 
-          <aside class="hero__ornament">
+          <aside class="hero__ornament hero__ornament--flight">
+            <div class="hero__flight-pill">Berlin → Edinburgh</div>
             <div class="hero__medallion" aria-hidden="true">
               <span class="hero__medallion-label">Gemeinsame Reise</span>
               <strong>2027</strong>
             </div>
-            <p class="hero__aside">
+            <div class="hero__toggle-row" aria-hidden="true">
+              <span class="hero__toggle is-active">Axel</span>
+              <span class="hero__toggle">Sabine</span>
+            </div>
+            <p class="hero__aside hero__aside--bright">
               Heute öffnet sich nur die erste Hälfte des Gutscheins. Die vollständige
               Überraschung folgt zu Sabines Geburtstag.
             </p>
           </aside>
         </div>
 
-        <div class="hero__skyline" aria-hidden="true">
+        <div class="hero__skyline hero__skyline--ember" aria-hidden="true">
           <svg viewBox="0 0 900 168" fill="none" xmlns="http://www.w3.org/2000/svg">
             <path
               d="M0 150H92L118 128L134 140L164 86L200 138H246L270 82L296 104L322 46L349 99L375 93L418 138H464L489 116L515 132H574L604 92L626 101L668 44L693 71L736 142H790L816 98L835 108L868 72L900 130V168H0V150Z"
@@ -99,7 +105,16 @@
         </div>
       </section>
 
-      <section class="promise-grid reveal delay-2">
+      <section class="intro-band reveal delay-2">
+        <p class="intro-band__label">Erster Blick</p>
+        <h2 class="intro-band__title">Heute zeigt sich erst die erste Seite eures Geschenks.</h2>
+        <p class="intro-band__copy">
+          Die große Geste bleibt bewusst noch halb verborgen, damit im Dezember aus
+          Vorfreude echte Enthüllung wird.
+        </p>
+      </section>
+
+      <section class="promise-grid reveal delay-3">
         <article class="promise-card">
           <p class="promise-card__eyebrow">Für euch beide</p>
           <h3>Ein gemeinsames Erlebnis</h3>
