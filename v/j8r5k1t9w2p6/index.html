@@ -22,60 +22,46 @@
     </button>
 
     <main class="page-shell">
-      <section class="hero reveal">
-        <div class="hero__stage">
-          <div class="hero__copy">
-            <p class="eyebrow">Edinburgh · 19.08.2027 bis 22.08.2027</p>
-            <h1>Liebe Sabine, lieber Axel – hier ist euer gemeinsames Geburtstagsgeschenk</h1>
-            <p class="lead">
-              Wir schenken euch eine gemeinsame Reise nach Edinburgh vom 19.08.2027 bis
-              22.08.2027 – inklusive Flügen ab Berlin, Hotel-Übernachtungen im Hilton
-              Edinburgh und Tickets für die Royal Edinburgh Military Tattoo 2027.
-            </p>
-          </div>
-
-          <aside class="hero__ornament hero__ornament--flight">
-            <div class="hero__flight-pill">Berlin → Edinburgh</div>
-            <div class="hero__medallion" aria-hidden="true">
-              <span class="hero__medallion-label">Reisejahr</span>
-              <strong>2027</strong>
-            </div>
-          </aside>
-        </div>
-
-        <div class="hero__skyline" aria-hidden="true">
-          <svg viewBox="0 0 960 160" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <path
-              d="M0 145H104L130 120L144 130L172 84L208 130H247L271 72L294 96L318 42L347 96L366 90L400 134H442L468 108L493 126H543L570 92L591 102L628 47L649 69L688 136H731L752 88L770 100L803 62L838 124L862 113L901 135H960V160H0V145Z"
-              fill="rgba(251,245,234,0.28)"
-            />
-            <path d="M320 42H342V96H320V42Z" fill="rgba(231,201,139,0.28)" />
-            <path d="M630 47H661V136H630V47Z" fill="rgba(231,201,139,0.24)" />
-            <path d="M735 87H757V136H735V87Z" fill="rgba(231,201,139,0.18)" />
-          </svg>
-        </div>
+      <section class="hero hero--full reveal">
+        <p class="eyebrow">Gemeinsame Geburtstagsreise</p>
+        <h1>Liebe Sabine, lieber Axel – hier ist euer gemeinsames Geburtstagsgeschenk</h1>
+        <p class="lead">
+          Wir schenken euch eine gemeinsame Reise nach Edinburgh vom 19.08.2027 bis
+          22.08.2027 – inklusive Flügen ab Berlin, Hotel-Übernachtungen im Hilton
+          Edinburgh und Tickets für die Royal Edinburgh Military Tattoo 2027.
+        </p>
       </section>
 
       <section class="voucher voucher--full reveal delay-1" aria-label="Vollständiger Reisegutschein">
-        <div class="voucher__frame">
-          <div class="voucher__topline">
-            <span class="voucher__badge">Gemeinsame Geburtstagsreise</span>
-            <span class="voucher__serial">Edinburgh · 2027</span>
-          </div>
-
-          <div class="voucher__full-grid">
-            <div>
-              <p class="voucher__eyebrow">Vollständiger Gutschein</p>
-              <h2 class="voucher__title">Edinburgh wartet auf euch</h2>
-
-              <div class="voucher__date-wrap">
-                <span class="voucher__date-label">Reisezeitraum</span>
-                <strong class="voucher__date">19.08.2027 bis 22.08.2027</strong>
-              </div>
+        <div class="voucher__sheet voucher__sheet--full">
+          <div class="voucher__summary">
+            <div class="voucher__topline">
+              <span class="voucher__badge">Gemeinsame Geburtstagsreise</span>
+              <span class="voucher__serial">19.08.2027 bis 22.08.2027</span>
             </div>
 
-            <div class="voucher__side">
-              <div class="voucher__seal-mark" aria-hidden="true">Für euch</div>
+            <p class="voucher__kicker">Reiseziel</p>
+            <h2 class="voucher__title">Edinburgh</h2>
+
+            <div class="date-card">
+              <span class="date-card__meta">Reisezeitraum</span>
+              <strong class="date-card__value">19.08.2027 bis 22.08.2027</strong>
+            </div>
+
+            <ul class="voucher__facts">
+              <li>Flüge ab Berlin nach Edinburgh</li>
+              <li>Hotel-Übernachtungen im Hilton Edinburgh</li>
+              <li>Tickets für die Royal Edinburgh Military Tattoo 2027</li>
+            </ul>
+          </div>
+
+          <div class="voucher__stamp">
+            <div class="voucher__stamp-card">
+              <div class="voucher__stamp-disc" aria-hidden="true">2027</div>
+              <p class="voucher__stamp-line">
+                Vier Tage gemeinsam unterwegs, mit Hotel, Flügen und einem besonderen
+                Abend beim Royal Edinburgh Military Tattoo.
+              </p>
             </div>
           </div>
         </div>
@@ -83,7 +69,7 @@
 
       <section class="detail-grid reveal delay-2" aria-label="Reisedetails">
         <article class="detail-card">
-          <p class="detail-card__eyebrow">Anreise</p>
+          <p class="detail-card__kicker">Anreise</p>
           <div class="detail-card__icon" aria-hidden="true">
             <svg viewBox="0 0 24 24" width="22" height="22" fill="none" xmlns="http://www.w3.org/2000/svg">
               <path d="M2 14L22 11L21 8L13 9L8 3H5L7 10L2 11V14Z" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round" />
@@ -97,7 +83,7 @@
         </article>
 
         <article class="detail-card">
-          <p class="detail-card__eyebrow">Aufenthalt</p>
+          <p class="detail-card__kicker">Aufenthalt</p>
           <div class="detail-card__icon" aria-hidden="true">
             <svg viewBox="0 0 24 24" width="22" height="22" fill="none" xmlns="http://www.w3.org/2000/svg">
               <path d="M4 20V8L12 4L20 8V20" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round" />
@@ -112,7 +98,7 @@
         </article>
 
         <article class="detail-card">
-          <p class="detail-card__eyebrow">Höhepunkt</p>
+          <p class="detail-card__kicker">Höhepunkt</p>
           <div class="detail-card__icon" aria-hidden="true">
             <svg viewBox="0 0 24 24" width="22" height="22" fill="none" xmlns="http://www.w3.org/2000/svg">
               <path d="M5 20V9L12 5L19 9V20" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round" />
