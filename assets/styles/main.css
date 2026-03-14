@@ -144,7 +144,7 @@ a {
 
 .hero__copy {
   position: relative;
-  overflow: hidden;
+  overflow: visible;
   padding: 1rem 0 0;
   border-radius: 2rem;
 }
@@ -201,6 +201,8 @@ a {
   letter-spacing: 0.24em;
   font-size: 0.73rem;
   font-weight: 800;
+  line-height: 1.45;
+  text-wrap: balance;
   color: var(--gold-500);
 }
 
@@ -1105,6 +1107,16 @@ body[data-audio-state="playing"] .sound-toggle {
 }
 
 @media (max-width: 620px) {
+  .eyebrow,
+  .voucher__eyebrow,
+  .detail-card__eyebrow,
+  .closing__eyebrow,
+  .hero__itinerary-title,
+  .promise-card__eyebrow {
+    letter-spacing: 0.18em;
+    font-size: 0.69rem;
+  }
+
   .voucher--split .voucher__frame {
     grid-template-columns: 1.08fr 0.92fr;
   }
