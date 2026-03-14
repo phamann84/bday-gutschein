@@ -121,7 +121,7 @@
     scheduleMelody();
     isRunning = true;
     manuallyPaused = false;
-    updateToggle("playing", "Dudelsack-Klang pausieren", true);
+    updateToggle("playing", "Dudelsackmusik pausieren", true);
   };
 
   const stop = async ({ manual } = { manual: false }) => {
@@ -144,7 +144,7 @@
     drones = [];
     isRunning = false;
     manuallyPaused = manual;
-    updateToggle("idle", "Dudelsack-Klang aktivieren", false);
+    updateToggle("idle", "Dudelsackmusik aktivieren", false);
   };
 
   const attemptAutoplay = async () => {
@@ -153,12 +153,12 @@
     }
 
     autoplayTried = true;
-    updateToggle("loading", "Dudelsack-Klang startet …", false);
+    updateToggle("loading", "Dudelsackmusik startet …", false);
 
     try {
       await start();
     } catch (error) {
-      updateToggle("pending", "Klang startet beim ersten Tippen", false);
+      updateToggle("pending", "Musik startet beim ersten Tippen", false);
     }
   };
 
@@ -177,7 +177,7 @@
     try {
       await start();
     } catch (error) {
-      updateToggle("blocked", "Audio auf diesem Gerät blockiert", false);
+      updateToggle("blocked", "Audio ist auf diesem Gerät blockiert", false);
     }
   };
 
@@ -196,7 +196,7 @@
     try {
       await start();
     } catch (error) {
-      updateToggle("blocked", "Audio auf diesem Gerät blockiert", false);
+      updateToggle("blocked", "Audio ist auf diesem Gerät blockiert", false);
     }
   };
 
@@ -221,9 +221,9 @@
         await start();
       }
     } catch (error) {
-      updateToggle("pending", "Klang startet beim ersten Tippen", false);
+      updateToggle("pending", "Musik startet beim ersten Tippen", false);
     }
   });
 
-  updateToggle("loading", "Dudelsack-Klang startet …", false);
+  updateToggle("loading", "Dudelsackmusik startet …", false);
 })();
