@@ -5,7 +5,7 @@ Statische, mobile-first Microsite mit zwei getrennten Gutschein-Versionen:
 - Teaser für Axel: `/v/c7n2f9m4e8q1/`
 - Vollversion für Sabine: `/v/j8r5k1t9w2p6/`
 
-Version: `1.0.4`
+Version: `1.0.5`
 
 ## Vorschau lokal
 
@@ -22,6 +22,8 @@ Danach im Browser öffnen:
 
 - `/v/c7n2f9m4e8q1/`
 - `/v/j8r5k1t9w2p6/`
+
+Der Dudelsack-Klang versucht direkt beim Laden zu starten und fällt bei restriktiven Browsern elegant auf den ersten Tipp zurück.
 
 ## Struktur
 

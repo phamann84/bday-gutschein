@@ -16,28 +16,44 @@
     <link rel="stylesheet" href="../../assets/styles/main.css" />
     <script src="../../assets/scripts/bagpipe-audio.js" defer></script>
   </head>
-  <body>
+  <body class="page page--teaser">
     <button class="sound-toggle" type="button" data-sound-toggle aria-pressed="false">
-      Dudelsack-Klang aktivieren
+      Dudelsack-Klang startet …
     </button>
 
     <main class="page-shell">
       <section class="hero reveal">
-        <p class="eyebrow">31.03.2026 · Ein besonderer Auftakt</p>
-        <h1>Lieber Axel, zu deinem 70. Geburtstag</h1>
-        <p class="lead">Ein gemeinsames Geschenk für dich und Sabine wartet auf euch.</p>
+        <div class="hero__stage">
+          <div class="hero__copy">
+            <p class="eyebrow">31.03.2026 · Erster Teil des gemeinsamen Reisegeschenks</p>
+            <h1>Lieber Axel, zu deinem 70. Geburtstag</h1>
+            <p class="lead">Ein gemeinsames Geschenk für dich und Sabine wartet auf euch.</p>
+            <div class="hero__meta" aria-label="Atmosphäre des Geschenks">
+              <span class="meta-chip">Für Axel &amp; Sabine</span>
+              <span class="meta-chip">Edinburgh · Sommer 2027</span>
+            </div>
+          </div>
+
+          <aside class="hero__ornament">
+            <div class="hero__medallion" aria-hidden="true">
+              <span class="hero__medallion-label">Gemeinsame Reise</span>
+              <strong>2027</strong>
+            </div>
+            <p class="hero__aside">
+              Heute öffnet sich nur die erste Hälfte des Gutscheins. Die vollständige
+              Überraschung folgt zu Sabines Geburtstag.
+            </p>
+          </aside>
+        </div>
 
         <div class="hero__skyline" aria-hidden="true">
-          <svg viewBox="0 0 800 140" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <svg viewBox="0 0 900 168" fill="none" xmlns="http://www.w3.org/2000/svg">
             <path
-              d="M0 132H92L113 104L121 113L140 75L168 112H198L217 61L236 82L252 40L274 82L292 77L320 116H352L370 102L389 114H423L447 88L462 95L487 46L501 63L531 118H565L580 84L595 96L620 64L647 108L665 100L694 121H800V140H0V132Z"
-              fill="rgba(248,242,231,0.28)"
+              d="M0 150H92L118 128L134 140L164 86L200 138H246L270 82L296 104L322 46L349 99L375 93L418 138H464L489 116L515 132H574L604 92L626 101L668 44L693 71L736 142H790L816 98L835 108L868 72L900 130V168H0V150Z"
+              fill="rgba(251,245,234,0.26)"
             />
-            <path
-              d="M177 111L193 61L219 111H177Z"
-              fill="rgba(227,201,143,0.32)"
-            />
-            <path d="M502 64H525V118H502V64Z" fill="rgba(227,201,143,0.24)" />
+            <path d="M319 46H343V98H319V46Z" fill="rgba(231,201,139,0.24)" />
+            <path d="M668 44H694V142H668V44Z" fill="rgba(231,201,139,0.22)" />
           </svg>
         </div>
       </section>
@@ -46,8 +62,18 @@
         <div class="voucher__frame">
           <div class="voucher__panel voucher__panel--primary">
             <div>
-              <span class="voucher__badge">Gemeinsamer Geburtstagsgutschein</span>
-              <h2 class="voucher__title">Merkt euch schon jetzt dieses Datum:</h2>
+              <div class="voucher__topline">
+                <span class="voucher__badge">Gemeinsamer Geburtstagsgutschein</span>
+                <span class="voucher__serial">Teil I von II</span>
+              </div>
+              <div class="voucher__headline-group">
+                <p class="voucher__eyebrow">Die Reise steht schon im Kalender</p>
+                <h2 class="voucher__title">Merkt euch schon jetzt dieses Datum:</h2>
+                <p class="voucher__copy">
+                  Ein gemeinsamer Moment, der heute erst andeutet, wie schön euer
+                  Geschenk zusammen werden wird.
+                </p>
+              </div>
               <div class="voucher__date-wrap">
                 <span class="voucher__date-label">Sichtbarer Gutschein-Text</span>
                 <strong class="voucher__date">19.08.2027 bis 22.08.2027</strong>
@@ -57,22 +83,41 @@
               </p>
             </div>
 
-            <p class="voucher__signature">Von Herzen für euch beide · Kathrin &amp; Pascal</p>
+            <div class="voucher__footer">
+              <p class="voucher__signature">Von Herzen für euch beide · Kathrin &amp; Pascal</p>
+              <div class="voucher__mini-crest" aria-hidden="true">E</div>
+            </div>
           </div>
 
           <div class="voucher__panel voucher__panel--sealed" aria-hidden="true">
             <div class="voucher__seal-mark">Teil II</div>
             <div class="voucher__seal-wording">
-              <strong>Gemeinsames Geschenk für Axel &amp; Sabine</strong>
+              <strong>Die zweite Hälfte bleibt bis Dezember versiegelt</strong>
               <span>Vollständig sichtbar ab 22.12.2026</span>
             </div>
           </div>
         </div>
       </section>
 
-      <p class="footer-note reveal delay-2">
-        Eine Hälfte des Gutscheins ist heute schon da, die zweite folgt zur passenden Zeit.
-      </p>
+      <section class="promise-grid reveal delay-2">
+        <article class="promise-card">
+          <p class="promise-card__eyebrow">Für euch beide</p>
+          <h3>Ein gemeinsames Erlebnis</h3>
+          <p>
+            Dieser Gutschein gehört bewusst euch beiden und beginnt heute mit einem
+            ersten, festlichen Blick in den Sommer 2027.
+          </p>
+        </article>
+
+        <article class="promise-card">
+          <p class="promise-card__eyebrow">Nächste Enthüllung</p>
+          <h3>22.12.2026</h3>
+          <p>
+            Dann wird die zweite Hälfte sichtbar und das ganze Geschenk vollständig
+            enthüllt.
+          </p>
+        </article>
+      </section>
     </main>
   </body>
 </html>

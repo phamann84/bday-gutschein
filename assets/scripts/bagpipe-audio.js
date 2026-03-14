@@ -1,4 +1,5 @@
 (() => {
+  const body = document.body;
   const toggle = document.querySelector("[data-sound-toggle]");
 
   if (!toggle) {
@@ -17,15 +18,43 @@
   let melodyTimer;
   let drones = [];
   let isRunning = false;
+  let manuallyPaused = false;
+  let autoplayTried = false;
 
   const tune = [
     466.16, 523.25, 587.33, 622.25, 698.46, 587.33, 523.25, 466.16,
     466.16, 523.25, 587.33, 698.46, 783.99, 698.46, 622.25, 587.33
   ];
 
-  const updateToggle = (text, pressed) => {
+  const updateToggle = (state, text, pressed) => {
+    body.dataset.audioState = state;
     toggle.textContent = text;
     toggle.setAttribute("aria-pressed", String(pressed));
+  };
+
+  const withTimeout = (promise, timeoutMs) =>
+    Promise.race([
+      promise,
+      new Promise((_, reject) => {
+        window.setTimeout(() => reject(new Error("Audio start timeout")), timeoutMs);
+      })
+    ]);
+
+  const ensureContext = async () => {
+    if (!audioContext) {
+      audioContext = new AudioCtx();
+      masterGain = audioContext.createGain();
+      masterGain.gain.value = 0.22;
+      masterGain.connect(audioContext.destination);
+    }
+
+    if (audioContext.state === "suspended") {
+      await withTimeout(audioContext.resume(), 250);
+    }
+
+    if (audioContext.state !== "running") {
+      throw new Error("AudioContext not running");
+    }
   };
 
   const createVoice = (frequency, type, gainValue, detune = 0) => {
@@ -55,7 +84,7 @@
     let index = 0;
 
     melodyTimer = window.setInterval(() => {
-      if (!audioContext || !masterGain) {
+      if (!audioContext || !masterGain || audioContext.state !== "running") {
         return;
       }
 
@@ -77,16 +106,7 @@
   };
 
   const start = async () => {
-    if (!audioContext) {
-      audioContext = new AudioCtx();
-      masterGain = audioContext.createGain();
-      masterGain.gain.value = 0.24;
-      masterGain.connect(audioContext.destination);
-    }
-
-    if (audioContext.state === "suspended") {
-      await audioContext.resume();
-    }
+    await ensureContext();
 
     if (isRunning) {
       return;
@@ -100,10 +120,11 @@
 
     scheduleMelody();
     isRunning = true;
-    updateToggle("Dudelsack-Klang pausieren", true);
+    manuallyPaused = false;
+    updateToggle("playing", "Dudelsack-Klang pausieren", true);
   };
 
-  const stop = async () => {
+  const stop = async ({ manual } = { manual: false }) => {
     if (!audioContext) {
       return;
     }
@@ -122,14 +143,22 @@
 
     drones = [];
     isRunning = false;
-    updateToggle("Dudelsack-Klang aktivieren", false);
+    manuallyPaused = manual;
+    updateToggle("idle", "Dudelsack-Klang aktivieren", false);
   };
 
-  const bootOnFirstGesture = async () => {
+  const attemptAutoplay = async () => {
+    if (autoplayTried || isRunning || manuallyPaused) {
+      return;
+    }
+
+    autoplayTried = true;
+    updateToggle("loading", "Dudelsack-Klang startet …", false);
+
     try {
       await start();
     } catch (error) {
-      updateToggle("Dudelsack-Klang aktivieren", false);
+      updateToggle("pending", "Klang startet beim ersten Tippen", false);
     }
   };
 
@@ -140,7 +169,16 @@
 
     document.removeEventListener("pointerdown", pointerBoot);
     document.removeEventListener("keydown", keyBoot);
-    await bootOnFirstGesture();
+
+    if (isRunning || manuallyPaused) {
+      return;
+    }
+
+    try {
+      await start();
+    } catch (error) {
+      updateToggle("blocked", "Audio auf diesem Gerät blockiert", false);
+    }
   };
 
   const keyBoot = async () => {
@@ -150,23 +188,42 @@
 
     document.removeEventListener("pointerdown", pointerBoot);
     document.removeEventListener("keydown", keyBoot);
-    await bootOnFirstGesture();
+
+    if (isRunning || manuallyPaused) {
+      return;
+    }
+
+    try {
+      await start();
+    } catch (error) {
+      updateToggle("blocked", "Audio auf diesem Gerät blockiert", false);
+    }
   };
 
   document.addEventListener("pointerdown", pointerBoot);
   document.addEventListener("keydown", keyBoot);
+  window.addEventListener("pageshow", () => {
+    autoplayTried = false;
+    attemptAutoplay();
+  });
+  document.addEventListener("visibilitychange", () => {
+    if (document.visibilityState === "visible" && !isRunning && !manuallyPaused) {
+      autoplayTried = false;
+      attemptAutoplay();
+    }
+  });
 
   toggle.addEventListener("click", async () => {
     try {
       if (isRunning) {
-        await stop();
+        await stop({ manual: true });
       } else {
         await start();
       }
     } catch (error) {
-      updateToggle("Audio auf diesem Gerät blockiert", false);
+      updateToggle("pending", "Klang startet beim ersten Tippen", false);
     }
   });
 
-  updateToggle("Dudelsack-Klang aktivieren", false);
+  updateToggle("loading", "Dudelsack-Klang startet …", false);
 })();
